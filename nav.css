@@ -1,0 +1,45 @@
+.Nav {
+    position: fixed;
+    font-size: large;
+    font-weight: 450;
+    font-family: monospace;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ff0000;
+    padding: 5px 0;
+    box-shadow: 2px 2px 2px 2px #ffde00;
+} 
+
+.Nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;  
+    overflow: hidden;
+    background-color: transparent;
+    z-index: 5;
+    text-align: center;
+} 
+
+.Nav li {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: transparent;
+ 
+} 
+
+.Nav li a {
+    display: block;
+    padding: 10px 20px; 
+    text-decoration: none;
+    color: white;
+    border-radius: 45px;
+} 
+
+.Nav li a:hover {
+    color: black;
+    transform: rotate(0deg) skew(0deg) translate(0, -3px);
+}
+

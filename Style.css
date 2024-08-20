@@ -1,0 +1,54 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #5db9ff;
+}
+
+.div1 {
+    border: solid black;
+    display: inline-block;
+    text-align: center;
+    margin: 13px;
+    padding: 12px;
+    margin-top: 5%;
+}
+
+#Name {
+    text-align: left;
+    
+}
+
+.Pimg {
+    justify-content: center;
+    text-align: center;
+}
+
+#Details {
+    border: solid black;
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    justify-content: center;
+    display: none;
+    margin-left: 750px;
+
+}
+
+.NameP {
+    font-size: 2rem;
+}
+
+#Sprite {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.title {
+    text-align: center;
+    justify-content: center;
+    margin-top: 5%;
+    text-decoration: underline;
+}
