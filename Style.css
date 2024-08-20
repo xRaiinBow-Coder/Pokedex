@@ -5,14 +5,26 @@ html {
     background-color: #5db9ff;
 }
 
+.container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    background-color: yellow;
+    margin-top: 5%;
+    width: 100%;
+}
+
 .div1 {
     border: solid black;
+    border-width: 1px;
     display: inline-block;
     text-align: center;
-    margin: 13px;
-    padding: 12px;
-    margin-top: 5%;
+    margin-right: 10px;
+    padding: 10px 12px;
+
 }
+
 
 #Name {
     text-align: left;
@@ -20,8 +32,9 @@ html {
 }
 
 .Pimg {
-    justify-content: center;
-    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #Details {

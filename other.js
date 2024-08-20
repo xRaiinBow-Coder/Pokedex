@@ -1,10 +1,10 @@
 async function DisplayPokemon() {
     const container = document.createElement("div");
     document.body.appendChild(container)
-
+    
     const maxID = 1000;
        
-    for (let i = 1; i <= 7; i++) {  
+    for (let i = 1; i <= 10; i++) {  
         try{
 
             let random = Math.floor(Math.random()*maxID) + 1;
@@ -23,6 +23,7 @@ async function DisplayPokemon() {
             const Pstats = document.createElement("h2");
             const Pweight = document.createElement('h2');
             const Pimg = document.createElement("img");
+            const Rfresh = document.createElement("button");
 
             Pname.classList.add("Pname");
             Pdiv.classList.add("div1");
@@ -31,23 +32,23 @@ async function DisplayPokemon() {
             Pweight.classList.add("Pweight");
             Pimg.classList.add("Pimg")
             container.classList.add("container")
+            Rfresh.classList.add("Rfresh")
     
-            Pname.textContent = `Name: ${data.name}`;
+            Pname.textContent = `${data.name}`;
             Pid.textContent = `ID ${data.id}`;
             Pstats.textContent = `Type: ${data.types.map(typeInfo => typeInfo.type.name).join(', ')}`;
             Pimg.src = data.sprites.front_default;
             Pimg.style.display = "block"
             Pweight.textContent = `Weight: ${data.weight}`;
+            Rfresh.textContent = "Refresh";
             
-        
             
             Pdiv.appendChild(Pname);
             Pdiv.appendChild(Pid);
             Pdiv.appendChild(Pstats);
             Pdiv.appendChild(Pweight)
             Pdiv.appendChild(Pimg);
-            
-
+            Pdiv.appendChild(Rfresh);
             container.appendChild(Pdiv);
         } catch (error){
             console.error(`fetch error: ${error}`)
