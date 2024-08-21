@@ -64,37 +64,45 @@ async function DisplayPokemon() {
 
 function AddToTeam(data) {
     const boxes = document.querySelectorAll('.box');
+    let boxFilled = false;
 
-    if (currentBoxIndex < boxes.length) {
-        const box = boxes[currentBoxIndex];
+    for (let i = 0; i < boxes.length; i++) {
+        const box = boxes[i];
+        if (box.innerHTML.trim() === "") {
+            
+            const Pimg = document.createElement('img');
+            Pimg.src = data.sprites.front_default;
+            Pimg.style.maxWidth = "100%";
+            Pimg.style.maxHeight = "100%";
+            Pimg.style.objectFit = "cover";
+            
+            
+            box.innerHTML = "";
+            box.appendChild(Pimg);
 
-        box.innerHTML = "";
-        
-        const Pimg = document.createElement('img');
-        Pimg.src = data.sprites.front_default;
-        Pimg.style.maxWidth = "100%";
-        Pimg.style.maxHeight = "100%";
-        Pimg.style.objectFit = "cover";
-
-        box.appendChild(Pimg);
-
-        currentBoxIndex++;
-
-        document.getElementById('remove').addEventListener('click', () => {
-            for (let i = boxes.length - 1; i >= 0; i--) {
-                const box = boxes[i];
-                if (box.innerHTML.trim() !== "") {
-                    box.innerHTML = "";
-                    currentBoxIndex = i; 
-                    return;
-                }
-            } 
-        });
-
-    } else {
-        alert("boxes are full")
+            
+            currentBoxIndex = i + 1; 
+            boxFilled = true;
+            break; 
+        }
     }
-}   
 
+    if (!boxFilled) {
+        alert("All boxes are full");
+    }
+}
+
+
+//document.getElementById('remove').addEventListener('click', () => {
+ //   const boxes = document.querySelectorAll('.box');
+  //  for (let i = boxes.length - 1; i >= 0; i--) {
+   //     const box = boxes[i];
+    //    if (box.innerHTML.trim() !== "") {
+     //       box.innerHTML = "";
+      //      currentBoxIndex = i; 
+       //     return;
+       // }
+   // }
+//});
 
 DisplayPokemon()

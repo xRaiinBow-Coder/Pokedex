@@ -22,7 +22,7 @@ async function Pokemon() {
         imgElement.src = data.sprites.front_default;
         imgElement.style.display = "block";
 
-        document.getElementById('Add').addEventListener('click', () => {
+          document.getElementById('Add').addEventListener('click', () => {
             AddToTeam2(data);
         })
 
@@ -49,34 +49,44 @@ async function Pokemon() {
 
 function AddToTeam2(data) {
     const boxes = document.querySelectorAll('.box');
+    let boxFilled = false;
 
-    if (pokemonData < boxes.length) {
-        const box = boxes[pokemonData];
+    
+    for (let i = 0; i < boxes.length; i++) {
+        const box = boxes[i];
+        if (box.innerHTML.trim() === "") {
+            
+            const Pimg = document.createElement('img');
+            Pimg.src = data.sprites.front_default;
+            Pimg.style.maxWidth = "100%";
+            Pimg.style.maxHeight = "100%";
+            Pimg.style.objectFit = "cover";
+            
+            
+            box.innerHTML = "";
+            box.appendChild(Pimg);
 
-        box.innerHTML = "";
-        
-        const imgElement = document.createElement('img');
-        imgElement.src = data.sprites.front_default;
-        imgElement.style.maxWidth = "100%";
-        imgElement.style.maxHeight = "100%";
-        imgElement.style.objectFit = "cover";
-
-        box.appendChild(imgElement);
-
-        pokemonData++;
-    } else {
-        alert("boxes are full")
+            
+            pokemonData = i + 1; 
+            boxFilled = true;
+            break; 
+        }
     }
-}   
+
+    if (!boxFilled) {
+        alert("All boxes are full");
+    }
+}
+
 document.getElementById('remove').addEventListener('click', () => {
     const boxes = document.querySelectorAll('.box');
-
     for (let i = boxes.length - 1; i >= 0; i--) {
         const box = boxes[i];
         if (box.innerHTML.trim() !== "") {
             box.innerHTML = "";
-            pokemonData--;
+            pokemonData = i; 
             return;
         }
     }
 });
+    
