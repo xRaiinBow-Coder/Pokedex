@@ -20,15 +20,15 @@
 <body>
     <h1 class="title">Pokemon</h1>
     <input type="text" id="Name" placeholder="Pokemone Name">
-    <button onclick="Pokemon()" id="Submit" >Search</button>
+    <button id="Submit" >Search</button>
     <button class="exit" id="exit">exit</button>
     
-    <button class="OpenButton" onclick="w3_open()">☰</button>
+    <button class="OpenButton" onclick="open()">☰</button>
 
     <div class="SideBar" id="Bar" style="display: none;">
-        <button onclick="w3_close()" class="CloseButton">Close</button>
+        <button onclick="close()" class="CloseButton">Close</button>
         <div class="ContainerP">
-            <button id="remove">remove</button>
+            <button id="remove">remove all</button>
             <div class="box" id="Ones"></div>
             <div class="box" id="Ones"></div>
             <div class="box" id="Ones"></div>
@@ -43,6 +43,7 @@
         <h1 class="ID" id="ID"></h1>
         <h1 class="stats" id="Stats"></h1>
         <img src="" id="Sprite" alt="image" style="display: none;" >
+        <button id="Add" style="display: none;">Add</button>
         </h1>
     </div>
 

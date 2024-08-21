@@ -1,3 +1,5 @@
+let pokemonData = 0;
+
 async function Pokemon() {
     const PokeyName = document.getElementById("Name").value.toLowerCase();
     const PNAME = document.getElementById("Names");
@@ -20,15 +22,22 @@ async function Pokemon() {
         imgElement.src = data.sprites.front_default;
         imgElement.style.display = "block";
 
+        document.getElementById('Add').addEventListener('click', () => {
+            AddToTeam2(data);
+        })
+
+
 }
     document.getElementById('Submit').addEventListener('click', () => {
         var search = document.getElementById('Name');
         var hidden = document.getElementById("Details");
+        var AddB = document.getElementById('Add');
 
         if (search.value.trim() === ""){
             hidden.style.display = "none" 
         }else {
             hidden.style.display = "block";
+            AddB.style.display = "block"
             Pokemon();
         };
 
@@ -38,3 +47,36 @@ async function Pokemon() {
     
     });
 
+function AddToTeam2(data) {
+    const boxes = document.querySelectorAll('.box');
+
+    if (pokemonData < boxes.length) {
+        const box = boxes[pokemonData];
+
+        box.innerHTML = "";
+        
+        const imgElement = document.createElement('img');
+        imgElement.src = data.sprites.front_default;
+        imgElement.style.maxWidth = "100%";
+        imgElement.style.maxHeight = "100%";
+        imgElement.style.objectFit = "cover";
+
+        box.appendChild(imgElement);
+
+        pokemonData++;
+    } else {
+        alert("boxes are full")
+    }
+}   
+document.getElementById('remove').addEventListener('click', () => {
+    const boxes = document.querySelectorAll('.box');
+
+    for (let i = boxes.length - 1; i >= 0; i--) {
+        const box = boxes[i];
+        if (box.innerHTML.trim() !== "") {
+            box.innerHTML = "";
+            pokemonData--;
+            return;
+        }
+    }
+});

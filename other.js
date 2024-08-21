@@ -1,5 +1,4 @@
 let currentBoxIndex = 0;
-
 async function DisplayPokemon() {
     const container = document.createElement("div");
     document.body.appendChild(container)
@@ -89,12 +88,13 @@ function AddToTeam(data) {
                     currentBoxIndex = i; 
                     return;
                 }
-            }
+            } 
         });
 
     } else {
         alert("boxes are full")
     }
 }   
+
 
 DisplayPokemon()

@@ -104,7 +104,7 @@ html {
     cursor: pointer;
 }
 
-.remove {
+#remove {
     float: right;
     z-index: 1;
     margin-right: 10px;
