@@ -22,17 +22,19 @@ async function Pokemon() {
 
 }
     document.getElementById('Submit').addEventListener('click', () => {
+        var search = document.getElementById('Name');
         var hidden = document.getElementById("Details");
-        //document.getElementById("Name").value = "";
-        hidden.style.display = "block";
 
-        Pokemon();
+        if (search.value.trim() === ""){
+            hidden.style.display = "none" 
+        }else {
+            hidden.style.display = "block";
+            Pokemon();
+        };
 
         document.getElementById('exit').addEventListener('click', () => {
             hidden.style.display = "none"
         })   
     
     });
-
-        
 

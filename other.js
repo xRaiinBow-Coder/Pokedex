@@ -1,3 +1,5 @@
+let currentBoxIndex = 0;
+
 async function DisplayPokemon() {
     const container = document.createElement("div");
     document.body.appendChild(container)
@@ -23,7 +25,7 @@ async function DisplayPokemon() {
             const Pstats = document.createElement("h2");
             const Pweight = document.createElement('h2');
             const Pimg = document.createElement("img");
-            const Rfresh = document.createElement("button");
+            const Raad = document.createElement("button");
 
             Pname.classList.add("Pname");
             Pdiv.classList.add("div1");
@@ -32,7 +34,7 @@ async function DisplayPokemon() {
             Pweight.classList.add("Pweight");
             Pimg.classList.add("Pimg")
             container.classList.add("container")
-            Rfresh.classList.add("Rfresh")
+            Raad.classList.add('Radd')
     
             Pname.textContent = `${data.name}`;
             Pid.textContent = `ID ${data.id}`;
@@ -40,7 +42,7 @@ async function DisplayPokemon() {
             Pimg.src = data.sprites.front_default;
             Pimg.style.display = "block"
             Pweight.textContent = `Weight: ${data.weight}`;
-            Rfresh.textContent = "Refresh";
+            Raad.textContent = "Add";
             
             
             Pdiv.appendChild(Pname);
@@ -48,13 +50,51 @@ async function DisplayPokemon() {
             Pdiv.appendChild(Pstats);
             Pdiv.appendChild(Pweight)
             Pdiv.appendChild(Pimg);
-            Pdiv.appendChild(Rfresh);
+            Pdiv.appendChild(Raad);
             container.appendChild(Pdiv);
+
+            Raad.addEventListener('click', function(){
+                AddToTeam(data);
+            });
+
         } catch (error){
             console.error(`fetch error: ${error}`)
         }
     } 
 }
 
-DisplayPokemon();
+function AddToTeam(data) {
+    const boxes = document.querySelectorAll('.box');
 
+    if (currentBoxIndex < boxes.length) {
+        const box = boxes[currentBoxIndex];
+
+        box.innerHTML = "";
+        
+        const Pimg = document.createElement('img');
+        Pimg.src = data.sprites.front_default;
+        Pimg.style.maxWidth = "100%";
+        Pimg.style.maxHeight = "100%";
+        Pimg.style.objectFit = "cover";
+
+        box.appendChild(Pimg);
+
+        currentBoxIndex++;
+
+        document.getElementById('remove').addEventListener('click', () => {
+            for (let i = boxes.length - 1; i >= 0; i--) {
+                const box = boxes[i];
+                if (box.innerHTML.trim() !== "") {
+                    box.innerHTML = "";
+                    currentBoxIndex = i; 
+                    return;
+                }
+            }
+        });
+
+    } else {
+        alert("boxes are full")
+    }
+}   
+
+DisplayPokemon()

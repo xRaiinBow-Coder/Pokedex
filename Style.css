@@ -65,3 +65,47 @@ html {
     margin-top: 5%;
     text-decoration: underline;
 }
+
+.SideBar {
+   height: 100%;
+   width: 0;
+   position: fixed;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   background-color: white;
+   overflow: hidden;
+   padding-top: 60px;
+   box-shadow: 4px 0 black;
+}
+
+.ContainerP {
+    display: block;
+    flex-wrap: wrap;
+
+}
+
+.ContainerP .box {
+    border: 1px solid black;
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+    margin-left: 50px;
+}
+
+.SideBar.open {
+    width: 250px;
+}
+
+.CloseButton {
+    margin-left: 16px;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.remove {
+    float: right;
+    z-index: 1;
+    margin-right: 10px;
+}
