@@ -12,6 +12,7 @@
             <li><a href="#one">Home</a></li>
             <li><a href="#m">pokemon</a></li>
             <li><a href="#ME">cvcx</a></li>
+            <button class="OpenButton" onclick="Sopen()" id="Slay">☰</button>
         </ul>
     </nav>
     
@@ -22,8 +23,8 @@
     <input type="text" id="Name" placeholder="Pokemone Name">
     <button onclick="" id="Submit" >Search</button>
     <button class="exit" id="exit">exit</button>
+    <button id="Add" style="display: none;">Add</button>
     
-    <button class="OpenButton" onclick="Sopen()">☰</button>
 
     <div class="SideBar" id="Bar" style="display: none;">
         <button onclick="Sclose()" class="CloseButton">Close</button>
@@ -39,13 +40,11 @@
     </div>
 
     <button id="Details">
-        <h1 class="NameP" id="Names">
+        <h1 class="NameP" id="Names"></h1>
         <h1 class="ID" id="ID"></h1>
         <h1 class="stats" id="Stats"></h1>
         <img src="" id="Sprite" alt="image" style="display: none;" >
-        <button id="Add" style="display: none;">Add</button>
-        </h1>
-    </div>
+
 
     <script src="main.js"></script>
     <script src="other.js"></script>

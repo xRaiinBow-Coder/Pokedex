@@ -31,18 +31,19 @@ async function Pokemon() {
     document.getElementById('Submit').addEventListener('click', () => {
         var search = document.getElementById('Name');
         var hidden = document.getElementById("Details");
-        var AddB = document.getElementById('Add');
+        var Add = document.getElementById('Add');
 
         if (search.value.trim() === ""){
             hidden.style.display = "none" 
         }else {
             hidden.style.display = "block";
-            AddB.style.display = "block"
+            Add.style.display = "block"
             Pokemon();
         };
 
         document.getElementById('exit').addEventListener('click', () => {
             hidden.style.display = "none"
+            Add.style.display = "none"
         })   
     
     });
