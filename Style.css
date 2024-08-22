@@ -105,6 +105,7 @@ html {
    overflow: hidden;
    padding-top: 60px;
    box-shadow: 4px 0 black;
+   background-color:  #5db9ff;
 }
 
 .ContainerP {
@@ -119,6 +120,8 @@ html {
     width: 120px;
     height: 120px;
     margin-left: 50px;
+    background-color: white;
+    box-shadow: 0 0 0 4px grey;
 }
 
 .SideBar.open {
@@ -126,16 +129,36 @@ html {
 }
 
 .CloseButton {
-    margin-left: 16px;
+    margin-left: 10px;
+    margin-top: 10px;
     color: black;
-    font-size: 20px;
+    background-color: red;
     cursor: pointer;
+    font-size: large;
+    border-color: red;
+}
+
+.CloseButton:hover {
+    background-color: yellow;
+    color: black;
+    border-color: yellow;
 }
 
 #remove {
-    float: right;
+    float: left;
     z-index: 1;
-    margin-right: 10px;
+    margin-left: 80px;
+    margin-top: -38px;
+    cursor: pointer;
+    font-size: large;
+    background-color: red;
+    border-color: red;
+}
+
+#remove:hover {
+    background-color: yellow;
+    color: black;
+    border-color: yellow;
 }
 
 #Slay {

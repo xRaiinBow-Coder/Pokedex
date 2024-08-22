@@ -6,47 +6,64 @@ async function Pokemon() {
     const PID = document.getElementById("ID");
     const imgElement = document.getElementById("Sprite")
     const Stats = document.getElementById("Stats")
+
+    clearData(PNAME, PID, imgElement, Stats);
     
+    
+    try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${PokeyName}/`);
-        
+
         if (!response.ok) {
             console.error(`Error: ${response.statusText}`);
             return;
         }
         const data = await response.json();
 
-        
+    
         PNAME.textContent = `${data.name}`;
         PID.textContent = `ID: ${data.id}`;
         Stats.textContent = `Weight: ${data.weight}`;
         imgElement.src = data.sprites.front_default;
         imgElement.style.display = "block";
 
-          document.getElementById('Add').addEventListener('click', () => {
+        const addButton = document.getElementById('Add');
+        addButton.replaceWith(addButton.cloneNode(true)); 
+
+        const newAddButton = document.getElementById('Add');  
+        newAddButton.addEventListener('click', () => {
             AddToTeam2(data);
-        })
-
-
-}
-    document.getElementById('Submit').addEventListener('click', () => {
-        var search = document.getElementById('Name');
-        var hidden = document.getElementById("Details");
-        var Add = document.getElementById('Add');
-
-        if (search.value.trim() === ""){
-            hidden.style.display = "none" 
-        }else {
-            hidden.style.display = "block";
-            Add.style.display = "block"
-            Pokemon();
-        };
-
-        document.getElementById('exit').addEventListener('click', () => {
-            hidden.style.display = "none"
-            Add.style.display = "none"
-        })   
+            
+        });
     
-    });
+    } catch (error) {
+        console.error("Error fetching Pokémon data:", error);
+    }
+
+  
+}
+document.getElementById('Submit').addEventListener('click', () => {
+    var search = document.getElementById('Name');
+    var hidden = document.getElementById("Details");
+    var Add = document.getElementById('Add');
+
+    if (search.value.trim() === ""){
+        hidden.style.display = "none" 
+    }else {
+        hidden.style.display = "block";
+        Add.style.display = "block"
+        Pokemon();
+    };
+
+    document.getElementById('exit').addEventListener('click', () => {
+        hidden.style.display = "none"
+        Add.style.display = "none"
+
+        const addButton = document.getElementById('Add');  
+    addButton.style.display = "none";  
+        
+    })   
+
+});
 
 function AddToTeam2(data) {
     const boxes = document.querySelectorAll('.box');
@@ -90,4 +107,12 @@ document.getElementById('remove').addEventListener('click', () => {
         }
     }
 });
-    
+
+function clearData(PNAME, PID, imgElement, Stats) {
+    PNAME.textContent = "";
+    PID.textContent = "";
+    Stats.textContent = "";
+    imgElement.src = "";
+    imgElement.style.display = "none";
+}
+      
