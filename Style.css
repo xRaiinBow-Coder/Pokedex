@@ -1,13 +1,17 @@
 html {
     margin: 0;
     padding: 0;
-    height: 100vh;
     background-color: #5db9ff;
+    scroll-snap-type: y proximity;
+}
+
+section {
+    scroll-snap-align: start;
+    height: 100vh;
 }
 
 .container {
-    display: flex;
-    overflow-x: auto;
+    overflow-y: auto;
     white-space: nowrap;
     padding: 10px;
     background-color: yellow;
@@ -65,24 +69,27 @@ html {
 
 #Details {
     border: solid black;
+    background-color: yellow;
     display: inline-block;
     text-align: center;
     width: 400px;
+    height: 280px;
     justify-content: center;
-    display: none;
     margin-left: 750px;
 
 }
 
 .NameP {
     font-size: 2rem;
+    margin-top: -10px;
 }
 
 #Sprite {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    margin-top: -20px;
+    z-index: 2;
 }
 
 
@@ -111,7 +118,6 @@ html {
 .ContainerP {
     display: block;
     flex-wrap: wrap;
-
 }
 
 .ContainerP .box {
@@ -178,4 +184,12 @@ html {
     background-color: black;
     border-color: black;
     color: yellow;
+}
+
+#Pik {
+    max-width: 250px;
+    max-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 0;
 }

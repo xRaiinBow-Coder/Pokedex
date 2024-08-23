@@ -41,28 +41,51 @@ async function Pokemon() {
 
   
 }
+document.getElementById('exit').addEventListener('click', () => {
+    var Add = document.getElementById('Add');
+    var Who = document.getElementById("who");
+    var nameP = document.getElementById("Names");
+    var idP = document.getElementById("ID");
+    var statsP = document.getElementById("Stats");
+    var sprite = document.getElementById("Sprite");
+    var WHO = document.getElementById("Pik");
+
+    nameP.style.display = "none";
+    idP.style.display = "none";
+    statsP.style.display = "none";
+    sprite.style.display = "none";
+    Add.style.display = "none"; 
+    Who.style.display = "block"; 
+    WHO.style.display = "block"; 
+});
+
 document.getElementById('Submit').addEventListener('click', () => {
     var search = document.getElementById('Name');
     var hidden = document.getElementById("Details");
     var Add = document.getElementById('Add');
+    var Who = document.getElementById("who");
+    var nameP = document.getElementById("Names");
+    var idP = document.getElementById("ID");
+    var statsP = document.getElementById("Stats");
+    var sprite = document.getElementById("Sprite");
+    var WHO = document.getElementById("Pik");
 
-    if (search.value.trim() === ""){
-        hidden.style.display = "none" 
-    }else {
+    if (search.value.trim() === "") {
+        nameP.style.display = "none";
+        idP.style.display = "none";
+        statsP.style.display = "none";
+        sprite.style.display = "none";
+    } else {
         hidden.style.display = "block";
-        Add.style.display = "block"
+        Add.style.display = "block";
+        nameP.style.display = "block";
+        idP.style.display = "block";
+        statsP.style.display = "block";
+        sprite.style.display = "block";
+        Who.style.display = "none";
+        WHO.style.display = "none";
         Pokemon();
-    };
-
-    document.getElementById('exit').addEventListener('click', () => {
-        hidden.style.display = "none"
-        Add.style.display = "none"
-
-        const addButton = document.getElementById('Add');  
-    addButton.style.display = "none";  
-        
-    })   
-
+    }
 });
 
 function AddToTeam2(data) {
