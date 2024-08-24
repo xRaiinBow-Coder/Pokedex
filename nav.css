@@ -7,7 +7,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #ff0000;
+    background-color: white;
     padding: 5px 0;
     box-shadow: 2px 2px 2px 2px #ffde00;
 } 
@@ -34,12 +34,15 @@
     display: block;
     padding: 10px 20px; 
     text-decoration: none;
-    color: white;
+    color: black;
     border-radius: 45px;
+    font-size: 20px;
 } 
 
 .Nav li a:hover {
     color: black;
-    transform: rotate(0deg) skew(0deg) translate(0, -3px);
+    transform: rotate(0deg) skew(0deg) translate(0, -1px);
+    background-color: yellow;
+    box-shadow: 0 2px black;
 }
 
