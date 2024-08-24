@@ -6,6 +6,7 @@ async function Pokemon() {
     const PID = document.getElementById("ID");
     const imgElement = document.getElementById("Sprite")
     const Stats = document.getElementById("Stats")
+    const Name = document.getElementById('Name').value=null;
 
     clearData(PNAME, PID, imgElement, Stats);
     
@@ -69,6 +70,7 @@ document.getElementById('Submit').addEventListener('click', () => {
     var statsP = document.getElementById("Stats");
     var sprite = document.getElementById("Sprite");
     var WHO = document.getElementById("Pik");
+    var Name = document.getElementById('Name')
 
     if (search.value.trim() === "") {
         nameP.style.display = "none";
@@ -131,7 +133,7 @@ document.getElementById('remove').addEventListener('click', () => {
     }
 });
 
-function clearData(PNAME, PID, imgElement, Stats) {
+function clearData(PNAME, PID, imgElement, Stats, Name) {
     PNAME.textContent = "";
     PID.textContent = "";
     Stats.textContent = "";
