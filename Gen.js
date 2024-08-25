@@ -3,6 +3,13 @@ async function Gen1() {
     document.body.appendChild(Card);
     Card.classList.add("container1");
 
+    const generationResponse = await fetch('https://pokeapi.co/api/v2/generation/');
+    if (!generationResponse.ok) {
+        console.error(`Error fetching generation data: ${generationResponse.statusText}`);
+        return;
+    }
+    const generations = await generationResponse.json();
+
     for (let i = 1; i <= 151; i++) {
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
@@ -46,6 +53,11 @@ async function Gen1() {
             habitat.textContent = `Habitat: ${speciesData.habitat ? speciesData.habitat.name : 'Unknown'}`;
             details.appendChild(habitat);
             
+            const generation = generations.results.find(gen => gen.url === speciesData.generation.url);
+            const Generational = document.createElement('p');
+            Generational.textContent = generation.name;
+            details.appendChild(Generational);
+
 
             //const gender = speciesData.gender_rate >= 0 ? speciesData.gender_rate : 'Unknown';
             //const Gender = document.createElement('p');
