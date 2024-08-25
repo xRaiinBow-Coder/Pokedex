@@ -221,11 +221,12 @@ section {
 }
 
 .details1 {
-    background-color: grey;
+    background-color: rgb(163, 161, 161);
     border: 1px solid black;
     border-radius: 8px;
     top: 0;
     left: 0;
     z-index: 2;
+    color: red;
 
 }
