@@ -5,7 +5,7 @@ async function DisplayPokemon() {
     
     const maxID = 1000;
        
-    for (let i = 1; i <= 20; i++) {  
+    for (let i = 1; i <= 12; i++) {  
         try{
 
             let random = Math.floor(Math.random()*maxID) + 1;

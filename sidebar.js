@@ -14,4 +14,9 @@ function Sopen() {
 
     }
 
-    
+//function Pages() {
+//    document.getElementById("Main").addEventListener('click', () => {
+//        window.location.href = "Main.html";
+//    });
+//}
+

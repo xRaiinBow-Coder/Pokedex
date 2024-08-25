@@ -199,3 +199,33 @@ section {
     margin-right: auto;
     z-index: 0;
 }
+
+
+.container1 {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    background-color: yellow;
+    box-shadow: 0 0 0 4px yellow;
+    position: relative;
+}
+
+.div2 {
+    border: solid black;
+    border-width: 1px;
+    text-align: center;
+    margin: 5px;
+    z-index: 1;
+    position: relative;
+
+}
+
+.details1 {
+    background-color: grey;
+    border: 1px solid black;
+    border-radius: 8px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+}
