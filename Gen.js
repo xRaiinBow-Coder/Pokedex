@@ -1,7 +1,12 @@
-async function Gen1() {
+
+async function Gen1(gens) {
+    const container = document.getElementById('pokemon-container');
+    container.innerHTML = '';
+
     const Card = document.createElement("div");
-    document.body.appendChild(Card);
+    container.appendChild(Card);
     Card.classList.add("container1");
+
 
     const generationResponse = await fetch('https://pokeapi.co/api/v2/generation/');
     if (!generationResponse.ok) {
@@ -10,7 +15,25 @@ async function Gen1() {
     }
     const generations = await generationResponse.json();
 
-    for (let i = 1; i <= 151; i++) {
+    let start, end;
+    if (gens === 1) {
+        start = 1;
+        end = 151;
+    } else if (gens === 2) {
+        start = 152;
+        end = 251;
+    } else if (gens === 3) {
+        start = 252;
+        end = 386;
+    } else if (gens === 4) {
+        start = 387;
+        end = 493;
+    } else if (gens === 5) {
+        start = 494;
+        end = 649;
+    }
+
+    for (let i = start; i <= end; i++) {
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
             if (!response.ok) {
@@ -57,8 +80,8 @@ async function Gen1() {
             const Generational = document.createElement('p');
             Generational.textContent = generation.name;
             details.appendChild(Generational);
-
-
+            
+        
             //const gender = speciesData.gender_rate >= 0 ? speciesData.gender_rate : 'Unknown';
             //const Gender = document.createElement('p');
             //Gender.textContent = `Gender Rate: ${gender}`;
@@ -95,6 +118,23 @@ async function Gen1() {
         }
     }
 }
-Gen1();
+
+document.body.addEventListener("click", (event) => {
+    if (event.target.id === "one") {
+        Gen1(1);
+    } else if (event.target.id === "two") {
+        Gen1(2);
+    } else if (event.target.id === "three") {
+        Gen1(3);
+    } else if (event.target.id === "four") {
+        Gen1(4);
+    } else if (event.target.id === "five") {
+        Gen1(5);
+    }
+});
+
+Gen1(1)
+
+
 
 
