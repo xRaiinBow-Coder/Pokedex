@@ -1,1 +1,6 @@
-designing my own pokedex using the PokeAPI, first time using an API 
+designing my own pokedex using the PokeAPI, first time using an API.
+
+I have built my own pokedex with the first page being able to search for any pokemon, aswell as the page showing 15 random pokemon.
+the second page, you can switch through 5 generations of pokemon and it will show all. the Burger icon lets you create your team, view all 6.
+
+I am finished this for now but i might make it so the team you create is saved in a database using PHP/SQL. 
